@@ -1,20 +1,123 @@
 *
 {
-    margin: 0;
-    padding: 0;
+    margin: 1fr;
+    /* border: red 1px solid; */
 }
 
 html,
 body
 {
-    height: 100vh;
     font-family: 'Poppins';
+    background: rgb(24,24,24);
+}
+
+.megacontenedor {
+   background: #333333
+}
+
+.header {
+    text-align: center;
+    color: white; 
+    border-bottom: 1px white solid;
+    background: rgb(24,24,24);
+}
+
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(50px, auto);
+    grid-template-areas:
+        "titulo titulo canvas"
+        "presentacion presentacion presentacion"
+        "texto texto texto";
+    
+    background: rgb(24,24,24);
+}
+
+@media only screen and (max-width: 600px)  {
+    .contenedor {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        grid-auto-rows: minmax(50px, auto);
+        grid-template-areas:
+            "titulo titulo titulo"
+            ". canvas ."
+            "presentacion presentacion presentacion"
+            "texto texto texto";
+           
+        
+        background: rgb(24,24,24);
+    }
+}
+
+.center {
+    max-width: 1300px;
+    margin: auto;
+    place-items: center;
+    /* border:  grey 1px solid; */
 }
 
 .webgl
 {
-    position: fixed;
-    top: 0;
-    left: 0;
     outline: none;
+    mix-blend-mode: exclusion;
+    min-width: 150px;
+    align-self: center;
+}
+
+#titulo {
+    font-size: calc(50px + 10 * ((100vw - 320px) / 1480));
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+}
+
+.titulo {
+    grid-area: titulo;
+}
+
+.webgl {
+    grid-area: canvas;
+}
+
+.presentacion {
+    grid-area: presentacion;
+}
+
+.contenido {
+    grid-area: texto;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.tituloParrafo {
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+}
+
+.parrafo {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: auto;
+}
+
+p {
+    text-align: center;
+    color: white; 
+    font-size: calc(16px + 10 * ((100vw - 320px) / 1480));
+    font-weight: 500;
+    font-family: 'IBM Plex Sans', sans-serif;
+    padding-right: 1.8rem;
+    padding-left: 1.8rem;
+    border: 1px solid hotpink;
+}
+
+.layoutShooter {
+    align-self: center;
+    width:  50%;
+    height: 100%;
+    margin: auto;
 }
