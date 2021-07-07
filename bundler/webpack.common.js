@@ -65,6 +65,21 @@ module.exports = {
                 ]
             },
 
+            //texturas
+            {
+                test: /\.glb$/,
+                use:
+                [
+                    {
+                        loader: 'file-loader',
+                        options:
+                        {
+                            outputPath: 'textures/'
+                        }
+                    }
+                ]
+            },
+
             // Fonts
             {
                 test: /\.(ttf|eot|woff|woff2)$/,
