@@ -18,9 +18,9 @@ var yo = null;
 
  
 
+require('./static/textures/ianevers.glb');
 // Debug
 // const gui = new dat.GUI()
-
 loader.load( '/textures/ianevers.glb', function ( gltf ) {
 
 	scene.add( gltf.scene );
