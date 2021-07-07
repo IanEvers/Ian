@@ -121,9 +121,11 @@ window.addEventListener('resize', () =>
     camera.aspect =  sizes.width / sizes.height
     
     camera.updateProjectionMatrix()
+
+    renderer.setSize(Math.min(window.innerWidth , canvas.width), canvas.height)
     
-    renderer.setSize( Math.min(window.innerWidth , 350), canvas.height)
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    
+    //renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
 
 /**
@@ -178,70 +180,55 @@ const tick = () =>
 
 tick()
 
+// EJERCICIO 1 
 
-// DIV SHOOTER
+var parrafo = $('.eje1');
+var descripcion = "Crear una función que devuelva una versión simplificada de una fracción. Ejemplo: simplificar('4/6') = '2/3'";
+$(parrafo).html(descripcion);
 
-var clasesElementos = [];
+var fraccion = $('.fraccion');
 
-$(".center").children().each(function() {
-    var clase = $(this).attr('class')
-    clasesElementos.push(clase)
+
+
+$('.simplificar').on('click', function() {
+  var valorFraccion = $(fraccion).val();
+  var numerosFraccion = valorFraccion.split('/');
+  var divisores1 = obtenerDivisores(numerosFraccion[0]);
+  var divisores2 = obtenerDivisores(numerosFraccion[1]);
+  
+  var mcm = obtenerMaximoComunMultiplo(divisores1, divisores2);
+
+  if(mcm) {
+
+    numerosFraccion[0] = numerosFraccion[0] / mcm;
+    numerosFraccion[1] = numerosFraccion[1] / mcm;
+    
+    $(fraccion).val(numerosFraccion[0] + '/' + numerosFraccion[1]); 
+  } else {
+    $(fraccion).val('Insimplificable.');     
+  }
+  
 });
 
-console.log(clasesElementos);
 
-const canvasShooter = document.querySelector('.layoutShooter');
-var ctx = canvasShooter.getContext('2d');
-var raf;
-
-var textXpos = 5;
-var textDirection= "right";
-var text = 'hola';
-
-var ball = {
-  x: 100,
-  y: 100,
-  vx: 5,
-  vy: 2,
-  radius: 25,
-  color: 'blue',
-  draw: function() {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
-    ctx.closePath();
-    ctx.fillStyle = this.color;
-    ctx.font = '48px serif';
-    ctx.fillText('Hello world', this.x, this.y);
-    ctx.fill();
+function obtenerMaximoComunMultiplo(divisores1, divisores2) {
+  var mcm;
+  for(var i = 0; i < divisores1.length; i++) {
+    for(var j = 0; j < divisores2.length; j++) {
+      if(divisores1[i] == divisores2[j]) {
+        mcm = divisores1[i];
+      }
+    }
   }
-};
-
-
-
-function draw() {
-  ctx.clearRect(0,0, canvasShooter.width, canvasShooter.height);
-  ball.draw();
-  ball.x += ball.vx;
-  ball.y += ball.vy;
-  if (ball.y + ball.vy > canvasShooter.height || ball.y + ball.vy < 0) {
-    ball.vy = -ball.vy;
-  }
-  if (ball.x + ball.vx > canvasShooter.width || ball.x + ball.vx < 0) {
-    ball.vx = -ball.vx;
-  }
-  raf = window.requestAnimationFrame(draw);
+  return mcm;
 }
 
-canvasShooter.addEventListener('mouseover', function(e) {
-  raf = window.requestAnimationFrame(draw);
-});
-
-canvasShooter.addEventListener('mouseout', function(e) {
-  window.cancelAnimationFrame(raf);
-});
-
-ball.draw();
-
-
-
-     
+function obtenerDivisores(numero) {
+  var listaDivisores = [];
+  for(var contador = 2; contador <= numero ;contador++) {
+    if(Number.isInteger(numero/contador)) {
+      listaDivisores.push(contador)
+    }
+  }
+  return listaDivisores;
+}

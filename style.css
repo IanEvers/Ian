@@ -50,6 +50,9 @@ body
         
         background: rgb(24,24,24);
     }
+    .layoutShooter {
+        width: 300px;
+    }
 }
 
 .center {
@@ -104,6 +107,26 @@ body
     width: auto;
 }
 
+.fraccion {
+    background-color: hotpink;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+.inputsEjercicio1 {
+    text-align: center;
+}
+
+.simplificar {
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: blanchedalmond;
+    /* font-weight: bold; */
+    border: 1px hotpink solid;
+    background-color: rgb(24,24,24);
+
+}
+
 p {
     text-align: center;
     color: white; 
@@ -117,7 +140,10 @@ p {
 
 .layoutShooter {
     align-self: center;
-    width:  50%;
-    height: 100%;
+   
     margin: auto;
+    border: 1px solid;
+}
+.contenedorCanvas {
+    display: flex;
 }
