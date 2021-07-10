@@ -67,13 +67,43 @@
         </div>
       </div>
     </div>
-    <h1 class="tituloParrafo"> layout shooter</h1>
-   <div class="contenedorCanvas">
-      <canvas class="layoutShooter"  width='700px' height='350px'>
-      </canvas>
+    <h1 class="tituloParrafo"> Elija su propio Layout!</h1>
+    <div class="contenedorLayout">
+      <div class="celdas">
+
+        <div id="celda1" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+        <div id="celda2" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+        <div id="celda3" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+        <div id="celda4" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+        <div id="celda5" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+        <div id="celda6" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+        <div id="celda7" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+        <div id="celda8" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+        <div id="celda9" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+      </div>
+
+      <h1 id="drag1" class="draggeable" draggable="true" ondragstart="drag(event)" width="336" height="69"> 
+        copado
+      </h1> 
+      
     </div>
     <hr>
   </div>
 </body>
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+</script>
 
 </html>

@@ -10,17 +10,9 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 // loading
 const textureLoader = new THREE.TextureLoader()
 
-const normalTexture = textureLoader.load('/textures/NormalMap.png')
-const normalTextureabejas = textureLoader.load('/textures/NormalMapabejas.png')
-
 const loader = new GLTFLoader();
 var yo = null;
 
- 
-
-
-// Debug
-// const gui = new dat.GUI()
 loader.load( '/textures/ianevers.glb', function ( gltf ) {
 
 	scene.add( gltf.scene );
@@ -40,44 +32,6 @@ const canvas = document.querySelector('canvas.webgl')
 // Scene
 const scene = new THREE.Scene()
 
-// Objects
-const geometry = new THREE.SphereGeometry(1, 64, 64);
-// const geometrySkybox = new THREE.SphereGeometry(45, 64, 64);
-const geometryPiso = new THREE.PlaneGeometry(50, 64, 64);
-
-
-// Materials
-
-const material = new THREE.MeshStandardMaterial({
-    color: 0xffffff,
-    metalness:0.7,
-    roughness:0.2,
-});
-material.normalMap = normalTexture
-
-// const materialSkybox = new THREE.MeshStandardMaterial({
-//     color: 0xffe600,
-//     side: THREE.BackSide,
-//     metalness:1,
-//     roughness:1,
-// });
-// materialSkybox.normalMap = normalTexture
-
-const materialPiso = new THREE.MeshStandardMaterial({
-    color: 0xfffff,
-    side: THREE.DoubleSide,
-    metalness:1,
-    roughness:1,
-});
-materialPiso.normalMap = normalTextureabejas
-
-
-// gui.add(yo);
-
-const sphere = new THREE.Mesh(geometry,material)
-// scene.add(sphere)
-// sphere.position.y = 0
-
 // Lights
 
 const pointLight = new THREE.PointLight(0xffffff, 1)
@@ -86,25 +40,16 @@ pointLight.position.y = 3
 pointLight.position.z = 4
 scene.add(pointLight)
 
-
-
 const light = new THREE.AmbientLight( 0x404040,5); // soft white light
 
 scene.add( light );
-const titulo = document.getElementById('titulo')
-function parallax() {
-    // sphere.position.y = window.scrollY * .001
-    // titulo.position.y = window.scrollY * .001
-    
-}
-
 
 /**
  * Sizes
 */
 const sizes = {
-    width: canvas.width,
-    height:  canvas.height
+  width: canvas.width,
+  height:  canvas.height
 }
 
 window.addEventListener('resize', () =>
@@ -115,14 +60,12 @@ window.addEventListener('resize', () =>
 
     // Update camera
 
-
     camera.aspect =  sizes.width / sizes.height
     
     camera.updateProjectionMatrix()
 
     renderer.setSize(Math.min(window.innerWidth , canvas.width), canvas.height)
-    
-    
+        
     //renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
 
@@ -154,29 +97,37 @@ const renderer = new THREE.WebGLRenderer({
 */
 
 const clock = new THREE.Clock()
-
+var agrandarCabeza = false
 const tick = () =>
 {
+  
+  const elapsedTime = clock.getElapsedTime()
+  // Update objects
+  if(yo) {
+    var rotacion = 0.9 * Math.cos(elapsedTime)+4.5
+    yo.rotation.y = rotacion
+  }
+  if(agrandarCabeza) {
 
-    const elapsedTime = clock.getElapsedTime()
-    // Update objects
-    if(yo) {
-        var rotacion = 0.9 * Math.cos(elapsedTime)+4.5
-        yo.rotation.y = rotacion
-    }
- 
-    // Render
-       
-    // renderer.setSize(Math.max(165, sizes.width/4), sizes.height/4)
-    renderer.setSize(Math.min(window.innerWidth , canvas.width), canvas.height)
-    renderer.render(scene, camera)
-    // renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    renderer.setSize(canvas.width +1, canvas.height+1)
+
+  }
+
+  // Render
+  renderer.render(scene, camera)
     
-    // Call tick again on the next frame
-    window.requestAnimationFrame(tick)
+  // Call tick again on the next frame
+  window.requestAnimationFrame(tick)
 }
 
 tick()
+
+
+// ANIMACIÓN ENTRE PANTALLAS
+// $('.simplificar').on('click', function() {
+//   agrandarCabeza = true;
+//   $(canvas).attr('position', 'absolute')
+// });
 
 // EJERCICIO 1 
 
@@ -229,4 +180,32 @@ function obtenerDivisores(numero) {
     }
   }
   return listaDivisores;
+}
+
+
+
+//  DRAG AND DROP
+$('.draggeable').on('dragstart', function(event) {
+  
+  drag(event);
+});
+
+$('.entraDraggeable').on('drop', function(event) {
+  drop(event);
+});
+
+$('.entraDraggeable').on('dragover', function(event) {
+  allowDrop(event);
+});
+
+function allowDrop(ev) {
+  
+}
+
+function drag(ev) {
+  
+}
+
+function drop(ev) {
+ 
 }

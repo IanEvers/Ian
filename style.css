@@ -32,7 +32,7 @@ body
         "presentacion presentacion presentacion"
         "texto texto texto";
     
-    background: rgb(24,24,24);
+   
 }
 
 @media only screen and (max-width: 600px)  {
@@ -46,9 +46,6 @@ body
             ". canvas ."
             "presentacion presentacion presentacion"
             "texto texto texto";
-           
-        
-        background: rgb(24,24,24);
     }
     .layoutShooter {
         width: 300px;
@@ -59,6 +56,7 @@ body
     max-width: 1300px;
     margin: auto;
     place-items: center;
+    background: rgb(24,24,24);
     /* border:  grey 1px solid; */
 }
 
@@ -121,10 +119,8 @@ body
     padding: 0.5rem;
     font-size: 1rem;
     color: blanchedalmond;
-    /* font-weight: bold; */
     border: 1px hotpink solid;
     background-color: rgb(24,24,24);
-
 }
 
 p {
@@ -135,15 +131,29 @@ p {
     font-family: 'IBM Plex Sans', sans-serif;
     padding-right: 1.8rem;
     padding-left: 1.8rem;
-    border: 1px solid hotpink;
 }
 
-.layoutShooter {
-    align-self: center;
-   
-    margin: auto;
-    border: 1px solid;
+.parrafo > p {
+    border: 1px solid hotpink;
+    
 }
-.contenedorCanvas {
-    display: flex;
+
+.contenedorLayout {
+    text-align: center;
+    max-width: 1300px;
+    margin: auto;
+}
+
+.celdas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(50px, auto);
+}
+
+
+
+.entraDraggeable {
+    border: 1px solid hotpink;
+    
 }
