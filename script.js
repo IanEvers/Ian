@@ -130,14 +130,7 @@ tick()
 // });
 
 // EJERCICIO 1 
-
-var parrafo = $('.eje1');
-var descripcion = "Crear una función que devuelva una versión simplificada de una fracción. Ejemplo: simplificar('4/6') = '2/3'";
-$(parrafo).html(descripcion);
-
 var fraccion = $('.fraccion');
-
-
 
 $('.simplificar').on('click', function() {
   var valorFraccion = $(fraccion).val();
@@ -209,3 +202,6 @@ function drag(ev) {
 function drop(ev) {
  
 }
+
+
+$(".contenedor").load("cuento.html");
