@@ -6,11 +6,13 @@
     <title>Ian Evers | Presentación</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-
+    
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100&display=swap" rel="stylesheet">
+    <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
 </head>
 <style>
 
@@ -32,72 +34,74 @@
           <h1 class="tituloSidebar">COSILLAS</h1>
           
         </div>
-        <a href="#" class="itemSidebar">Desafío técnico</a>
-        <a href="#" class="itemSidebar">Cuento coder</a>
+        <a href="#" id="desafioTecnico" class="itemSidebar">Desafío técnico</a>
+        <a href="#" id="cuento" class="itemSidebar">Cuentito coder</a>
         <a href="#" class="itemSidebar">Contacto</a>
       </div>
       
-      <div class="contenedor center">
-        <div class="titulo">
-          <h1 id="titulo">Ian Evers</h1>
-        </div>
+      <div class="contenedorDeContenido">
+      
+        <div class="contenedor center">
         
-        <canvas class="webgl" width="350" height="200">
-        </canvas>
-        
-        <div class="presentacion">
-          <p>
-            Hola! Soy un joven programador Full Stack.
-          </p>
-        </div>
-        <div class="contenido">
-          <div class="parrafo">
-            <h1 class="tituloParrafo">Ejercicio 1 </h1>
-            <p class="eje1">
-              Crear una función que devuelva una versión simplificada de una fracción. Ejemplo: simplificar('4/6') = '2/3'
+          <h1 class="titulo">Ian Evers</h1>
+          
+          <canvas class="webgl" width="350" height="200">
+          </canvas>
+          
+          <div class="presentacion">
+            <p class="pMain">
+              Hola! Soy un joven programador Full Stack.
             </p>
-            <div class="inputsEjercicio1"> 
-              <input type="text" class="fraccion">
-              <input type="button" class="simplificar" value="SIMPLIFICAR">
+          </div>
+          <div class="contenido">
+            <div class="parrafo">
+              <h1 class="tituloParrafo">Ejercicio 1 </h1>
+              <p class="eje1 pMain">
+                Crear una función que devuelva una versión simplificada de una fracción. Ejemplo: simplificar('4/6') = '2/3'
+              </p>
+              <div class="inputsEjercicio1"> 
+                <input type="text" class="fraccion">
+                <input type="button" class="simplificar" value="SIMPLIFICAR">
+              </div>
+            </div>
+            <div class="parrafo">
+              <h1 class="tituloParrafo">titulo 2</h1>
+              <p class="pMain">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime
+                , nihil quo culpa consectetur facere
+                nam delectus illum consequatur est odit excepturi!
+              </p>
+            </div>
+            <div class="parrafo">
+              <h1 class="tituloParrafo">titulo 3</h1>
+              <p class="pMain">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aliquid ratione amet sint! Rem eveniet recusandae quis amet praesentium 
+                ipsum quibusdam optio illo error! Harum minus ipsum cumque maiores vitae necessitatibus!
+              </p>
             </div>
           </div>
-          <div class="parrafo">
-            <h1 class="tituloParrafo">titulo 2</h1>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime
-              , nihil quo culpa consectetur facere
-              nam delectus illum consequatur est odit excepturi!
-            </p>
-          </div>
-          <div class="parrafo">
-            <h1 class="tituloParrafo">titulo 3</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Aliquid ratione amet sint! Rem eveniet recusandae quis amet praesentium 
-              ipsum quibusdam optio illo error! Harum minus ipsum cumque maiores vitae necessitatibus!
-            </p>
-          </div>
-        </div>
-        <div class="contenedorLayout">
-          <h1 class="tituloParrafo"> Elija su propio Layout!</h1>
-          <div class="celdas">
+          <div class="contenedorLayout">
+            <h1 class="tituloParrafo"> Elija su propio Layout!</h1>
+            <div class="celdas">
+              
+              <div id="celda1" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+              <div id="celda2" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+              <div id="celda3" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+              <div id="celda4" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+              <div id="celda5" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+              <div id="celda6" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+              <div id="celda7" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+              <div id="celda8" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+              <div id="celda9" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+            </div>
             
-            <div id="celda1" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
-            <div id="celda2" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
-            <div id="celda3" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
-            <div id="celda4" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
-            <div id="celda5" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
-            <div id="celda6" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
-            <div id="celda7" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
-            <div id="celda8" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
-            <div id="celda9" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+            <h1 id="drag1" class="draggeable" draggable="true" ondragstart="drag(event)" width="336" height="69"> 
+              copado
+            </h1>
           </div>
-          
-          <h1 id="drag1" class="draggeable" draggable="true" ondragstart="drag(event)" width="336" height="69"> 
-            copado
-          </h1>
+            
         </div>
-          
       </div>
     </div>
     <hr style="margin: 0;">

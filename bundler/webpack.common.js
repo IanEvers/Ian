@@ -19,8 +19,15 @@ module.exports = {
             ]
         }),
         new HtmlWebpackPlugin({
+            filename: 'index.html',
             template: path.resolve(__dirname, '../index.html'),
             minify: true
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'cuento.html',
+            template: path.resolve(__dirname, '../cuento.html'),
+            minify: true,
+            chunks: []
         }),
         new MiniCSSExtractPlugin()
     ],

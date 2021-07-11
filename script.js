@@ -54,25 +54,22 @@ const sizes = {
 
 window.addEventListener('resize', () =>
 {
-    // Update sizes
-    sizes.width = canvas.width,
-    sizes.height =  canvas.height
+  // Update sizes
+  sizes.width = canvas.width,
+  sizes.height =  canvas.height
 
-    // Update camera
+  // Update camera
 
-    camera.aspect =  sizes.width / sizes.height
-    
-    camera.updateProjectionMatrix()
+  camera.aspect =  sizes.width / sizes.height
+  
+  camera.updateProjectionMatrix()
 
-    renderer.setSize(Math.min(window.innerWidth , canvas.width), canvas.height)
-        
-    //renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+  renderer.setSize(Math.min(window.innerWidth , canvas.width), canvas.height)
 })
 
 /**
- * Camera
+ * Cámara
  */
-// Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.x = -2.5
 camera.position.y = 0
@@ -81,7 +78,6 @@ scene.add(camera)
 
 // Controls
 const controls = new OrbitControls(camera, canvas)
-controls.enableDamping = true
 controls.enabled = false
 /**
  * Renderer
@@ -91,26 +87,29 @@ const renderer = new THREE.WebGLRenderer({
     alpha: true
 })
 
-
 /**
  * Animate
 */
 
 const clock = new THREE.Clock()
 var agrandarCabeza = false
+var pausa = false
+
 const tick = () =>
 {
+  if (pausa) {
+    return;
+  }
   
   const elapsedTime = clock.getElapsedTime()
-  // Update objects
+  // muevo cabeza 
   if(yo) {
     var rotacion = 0.9 * Math.cos(elapsedTime)+4.5
     yo.rotation.y = rotacion
   }
+
   if(agrandarCabeza) {
-
     renderer.setSize(canvas.width +1, canvas.height+1)
-
   }
 
   // Render
@@ -202,6 +201,27 @@ function drag(ev) {
 function drop(ev) {
  
 }
+// require("/cuento.html") 
+var main = $('.contenedor')
+$('#cuento').on('click', function() {
+  
+  $(main).css( 'display', 'none' )
+  $(".contenedorDeContenido").load("cuento.html");
+  pausa = true;
+});
+
+$('#desafioTecnico').on('click', function() {
+  
+  $(main).css( 'display', '' )
+  $(".cuento").remove();
+  $(".contenedorDeContenido").html(main);
+
+  pausa = false;
+  tick()
+
+});
 
 
-$(".contenedor").load("cuento.html");
+// var extern = document.getElementsByTagName("link")[0].import;
+// console.log(extern)
+// $(".contenedor").load("cuento.html");
