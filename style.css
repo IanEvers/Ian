@@ -12,24 +12,23 @@ body
     background: rgb(24,24,24);
 }
 
-.megacontenedor {
-   background: #333333
-   
-}
+
 
 .header {
     text-align: center;
     color: white; 
     border-bottom: 1px white solid;
     background: rgb(24,24,24);
+    grid-area: header;
 }
 
 .contenidoYSidebar {
     display: grid;
-    grid-template-columns: 20% 80%;
-    grid-gap: 10px;
+    grid-template-columns: 1fr 80%;
+    grid-gap: 10px 0px 0px 00px;
     grid-auto-rows: minmax(50px, auto);
     grid-template-areas:
+    "sidebar header"
     "sidebar contenedor";
 }
 
@@ -38,6 +37,11 @@ body
     display: flex;
     flex-direction: column;
     text-align: center;
+    border-right: blanchedalmond solid 1px;
+}
+
+.fa-chevron-left {
+    color: aliceblue;  
 }
 
 .tituloSidebar {
@@ -84,8 +88,9 @@ body
         grid-gap: 10px;
         grid-auto-rows: minmax(50px, auto);
         grid-template-areas:
-        "sidebar"
-        "contenedor";
+        "header"
+        "contenedor"
+        "sidebar";
     }
     .contenedor {
         display: grid;

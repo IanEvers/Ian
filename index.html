@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100&display=swap" rel="stylesheet">
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/99e1723b5a.js" crossorigin="anonymous"></script>
     
 </head>
 <style>
@@ -19,7 +21,8 @@
 </style>
 <body>   
   
-  <div class="megacontenedor">
+  <div class="contenidoYSidebar">
+ 
   
     <div class="header">
       <header>
@@ -27,19 +30,20 @@
       </header>
     </div>
 
-    <div class="contenidoYSidebar">
 
       <div class="sidebar">
         <div>
-          <h1 class="tituloSidebar">COSILLAS</h1>
+           <h1 class="tituloSidebar"><a href="#"> <i class="fas fa-chevron-left"></i></a> &nbsp; COSILLAS</h1>
           
         </div>
-        <a href="#" id="desafioTecnico" class="itemSidebar">Desafío técnico</a>
-        <a href="#" id="cuento" class="itemSidebar">Cuentito coder</a>
-        <a href="#" class="itemSidebar">Contacto</a>
+        <a href="#" id="desafioTecnico" class="itemSidebar"> <i class="fas fa-code"></i> &nbsp; Desafío técnico</a> 
+        <a href="#" id="cuento" class="itemSidebar"><i class="fas fa-align-left"></i> &nbsp; Cuentito coder</a>
+        <a href="#" id="musica" class="itemSidebar"> <i class="fas fa-music"></i> &nbsp;  Música</a>
+        <a href="#" class="itemSidebar"><i class="far fa-kiss-wink-heart"></i> &nbsp;  Contacto</a>
       </div>
       
       <div class="contenedorDeContenido">
+       
       
         <div class="contenedor center">
         
@@ -105,7 +109,6 @@
       </div>
     </div>
     <hr style="margin: 0;">
-  </div>
   </body>
   <script>
     function allowDrop(ev) {

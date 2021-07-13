@@ -25,7 +25,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             filename: 'cuento.html',
-            template: path.resolve(__dirname, '../cuento.html'),
+            template: path.resolve(__dirname, '../vistas/cuento.html'),
             minify: true,
             chunks: []
         }),
