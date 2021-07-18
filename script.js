@@ -230,7 +230,10 @@ function cargarVista(vista) {
 
   if(vista =='desafioTecnico') {
     
-    $(".contenedorDeContenido").load("../presentacion.html")
+    $(".contenedorDeContenido").load("presentacion.html")
+
+    // Este setTimeout no está bien en realidad, lo hice para que no se llame a elementos del DOM que todavía no cargaron.
+    // Lo correcto sería hacer el llamado ni bien carguen, pero no se cuando es que cargan exactamente jeje xd
     setTimeout(() => {
       threeJS();
     }, 100); 
