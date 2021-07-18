@@ -29,6 +29,12 @@ module.exports = {
             minify: true,
             chunks: []
         }),
+        new HtmlWebpackPlugin({
+            filename: 'presentacion.html',
+            template: path.resolve(__dirname, '../vistas/presentacion.html'),
+            minify: true,
+            chunks: []
+        }),
         new MiniCSSExtractPlugin()
     ],
     module:

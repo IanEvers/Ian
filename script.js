@@ -1,137 +1,153 @@
-// THREE JS
+cargarVista('desafioTecnico')
 
+// THREE JS
 
 import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
+var pausa=true;
+function threeJS() {
+
 
 // loading
-const textureLoader = new THREE.TextureLoader()
-
-const loader = new GLTFLoader();
-var yo = null;
-
-loader.load( 'https://cdn.jsdelivr.net/gh/IanEvers/Ian@master/static/textures/ianevers.glb', function ( gltf ) {
-
-	scene.add( gltf.scene );
+  
+  const loader = new GLTFLoader();
+  var yo = null;
+  
+  loader.load( 'https://cdn.jsdelivr.net/gh/IanEvers/Ian@master/static/textures/ianevers.glb', function ( gltf ) {
+    
+    scene.add( gltf.scene );
     yo = gltf.scene
     gltf.scene.rotation.y = 5
     // gui.add(gltf.scene.rotation, 'y')
     
-}, undefined, function ( error ) {
-
-	console.error( error );
-
-} );
-
-// Canvas
-const canvas = document.querySelector('canvas.webgl')
-
-// Scene
-const scene = new THREE.Scene()
-
-// Lights
-
-const pointLight = new THREE.PointLight(0xffffff, 1)
-pointLight.position.x = 2
-pointLight.position.y = 3
-pointLight.position.z = 4
-scene.add(pointLight)
-
-const light = new THREE.AmbientLight( 0x404040,5); // soft white light
-
-scene.add( light );
-
-/**
- * Sizes
-*/
-const sizes = {
-  width: canvas.width,
-  height:  canvas.height
-}
-
-window.addEventListener('resize', () =>
-{
-  // Update sizes
-  sizes.width = canvas.width,
-  sizes.height =  canvas.height
-
-  // Update camera
-
-  camera.aspect =  sizes.width / sizes.height
+  }, undefined, function ( error ) {
+    
+    console.error( error );
+    
+  } );
   
-  camera.updateProjectionMatrix()
+  // Canvas
+  const canvas = document.querySelector('canvas.webgl')
+  
+  // Scene
+  const scene = new THREE.Scene()
+  
+  // Lights
+  
+  const pointLight = new THREE.PointLight(0xffffff, 1)
+  pointLight.position.x = 2
+  pointLight.position.y = 3
+  pointLight.position.z = 4
+  scene.add(pointLight)
+  
+  const light = new THREE.AmbientLight( 0x404040,5); // soft white light
+  
+  scene.add( light );
+  
+  /**
+   * Sizes
+   */
+  const sizes = {
+    width: canvas.width,
+    height:  canvas.height
+  }
+  
+  window.addEventListener('resize', () =>
+  {
+    // Update sizes
+    sizes.width = canvas.width,
+    sizes.height =  canvas.height
+    
+    // Update camera
+    
+    camera.aspect =  sizes.width / sizes.height
+    
+    camera.updateProjectionMatrix()
+    
+    renderer.setSize(Math.min(window.innerWidth , canvas.width), canvas.height)
+  })
+  
+  /**
+   * Cámara
+   */
+  const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
+  camera.position.x = -2.5
+  camera.position.y = 0
+  camera.position.z = 0
+  scene.add(camera)
+  
+  // Controls
+  const controls = new OrbitControls(camera, canvas)
+  controls.enabled = false
 
-  renderer.setSize(Math.min(window.innerWidth , canvas.width), canvas.height)
-})
-
-/**
- * Cámara
- */
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-camera.position.x = -2.5
-camera.position.y = 0
-camera.position.z = 0
-scene.add(camera)
-
-// Controls
-const controls = new OrbitControls(camera, canvas)
-controls.enabled = false
-/**
- * Renderer
- */
-const renderer = new THREE.WebGLRenderer({
+  // Renderer
+  const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
     alpha: true
-})
-
-/**
- * Animate
-*/
-
-const clock = new THREE.Clock()
-var agrandarCabeza = false
-var pausa = false
-
-const tick = () =>
-{
-  if (pausa) {
-    return;
-  }
+  })
   
-  const elapsedTime = clock.getElapsedTime()
-  // muevo cabeza 
-  if(yo) {
-    var rotacion = 0.9 * Math.cos(elapsedTime)+4.5
-    yo.rotation.y = rotacion
-  }
-
-  if(agrandarCabeza) {
-    renderer.setSize(canvas.width +1, canvas.height+1)
-  }
-
-  // Render
-  renderer.render(scene, camera)
+  //Animación
+  const clock = new THREE.Clock()
+  var agrandarCabeza = false
+  pausa = false
+  
+  const tick = () =>
+  {
+    if (pausa) {
+      return;
+    }
     
-  // Call tick again on the next frame
-  window.requestAnimationFrame(tick)
+    const elapsedTime = clock.getElapsedTime()
+
+    // muevo cabeza 
+    if(yo) {
+      var rotacion = 0.9 * Math.cos(elapsedTime)+4.5
+      yo.rotation.y = rotacion
+    }
+
+    if(agrandarCabeza) {
+      renderer.setSize(canvas.width +1, canvas.height+1)
+    }
+
+    // Render
+    renderer.render(scene, camera)
+    
+    // Call tick again on the next frame
+    window.requestAnimationFrame(tick)
+  }
+
+  tick()
+
 }
 
-tick()
+//ANIMACIÓN ENTRE PANTALLAS
+$('.itemSidebar').on('click', function() {
+  
+  var seccion = $(this).attr('id');
+    
+  transicion().then(cargarVista(seccion));
+  
+});
 
+function transicion() { 
+  return new Promise((resolve, reject) => {
+    var canvasTransicion = $('.transicion')
+    
+    $(canvasTransicion).attr('position', 'absolute')
+    // agrandarCabeza = true;
+    resolve(true);
+  })
+}
+  
 
-// ANIMACIÓN ENTRE PANTALLAS
-// $('.simplificar').on('click', function() {
-//   agrandarCabeza = true;
-//   $(canvas).attr('position', 'absolute')
-// });
 
 // EJERCICIO 1 
-var fraccion = $('.fraccion');
 
-$('.simplificar').on('click', function() {
+$(document).on("click", ".simplificar" , function() {
+  var fraccion = $('.fraccion');
   var valorFraccion = $(fraccion).val();
   var numerosFraccion = valorFraccion.split('/');
   var divisores1 = obtenerDivisores(numerosFraccion[0]);
@@ -201,27 +217,34 @@ function drag(ev) {
 function drop(ev) {
  
 }
-// require("/cuento.html") 
-var main = $('.contenedor')
-$('#cuento').on('click', function() {
+
+var ultimaVista = 'desafioTecnico';
+
+function cargarVista(vista) {
   
-  $(main).css( 'display', 'none' )
-  $(".contenedorDeContenido").load("cuento.html");
-  pausa = true;
-});
+  if(vista == ultimaVista) return;
 
-$('#desafioTecnico').on('click', function() {
-  
-  $(main).css( 'display', '' )
-  $(".cuento").remove();
-  $(".contenedorDeContenido").html(main);
+  if(vista != 'desafioTecnico') {
+    pausa = true;
+  }
 
-  pausa = false;
-  tick()
+  if(vista =='desafioTecnico') {
+    
+    $(".contenedorDeContenido").load("../presentacion.html")
+    setTimeout(() => {
+      threeJS();
+    }, 100); 
 
-});
+  } if(vista =='cuento') {
+    $(".contenedorDeContenido").load("cuento.html");
+    
+  } else if(vista =='musica') {
+    $(".contenedorDeContenido").load("musica.html");
 
+  } else if(vista =='contacto') {
+    // $(".contenedorDeContenido").load("cuento.html");
 
-// var extern = document.getElementsByTagName("link")[0].import;
-// console.log(extern)
-// $(".contenedor").load("cuento.html");
+  }
+
+  ultimaVista = vista;
+}

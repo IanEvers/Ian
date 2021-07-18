@@ -12,8 +12,6 @@ body
     background: rgb(24,24,24);
 }
 
-
-
 .header {
     text-align: center;
     color: white; 
@@ -203,10 +201,6 @@ body
     border: 1px solid hotpink;
 }
 
-.draggeable {
-    
-}
-
 .cuento {
     max-width: 800px;
     background-color: rgb(24,24,24);
@@ -218,7 +212,7 @@ body
     color: white; 
     font-size: 1.2rem;
     font-weight: 500;
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'IBM Plex Sans', serif;
     /* text-align: justify; */
     padding-right: 1.8rem;
     padding-left: 1.8rem;
