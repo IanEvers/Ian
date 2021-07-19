@@ -236,7 +236,7 @@ function cargarVista(vista) {
     // Lo correcto sería hacer el llamado ni bien carguen, pero no se cuando es que cargan exactamente jeje xd
     setTimeout(() => {
       threeJS();
-    }, 1000); 
+    }, 100); 
 
   } if(vista =='cuento') {
     $(".contenedorDeContenido").load("cuento.html");
