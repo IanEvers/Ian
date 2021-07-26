@@ -16,7 +16,7 @@ function threeJS() {
   const loader = new GLTFLoader();
   var yo = null;
   
-  loader.load( 'https://cdn.jsdelivr.net/gh/IanEvers/Ian@master/static/ianevers.glb', function ( gltf ) {
+  loader.load( 'https://ianevers.github.io/Ian/ianevers.glb', function ( gltf ) {
     
     scene.add( gltf.scene );
     yo = gltf.scene
