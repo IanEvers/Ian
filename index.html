@@ -42,7 +42,7 @@
         <a href="#" id="desafioTecnico" class="itemSidebar"> <i class="fas fa-code"></i> &nbsp; Desafío técnico</a> 
         <a href="#" id="cuento" class="itemSidebar"><i class="fas fa-align-left"></i> &nbsp; Cuentito coder</a>
         <a href="#" id="musica" class="itemSidebar"> <i class="fas fa-music"></i> &nbsp;  Música</a>
-        <a href="#" class="itemSidebar"><i class="far fa-kiss-wink-heart"></i> &nbsp;  Contacto</a>
+        <a href="#" id="contacto" class="itemSidebar"><i class="far fa-kiss-wink-heart"></i> &nbsp;  Contacto</a>
       </div>
       
       <div class="contenedorDeContenido">
@@ -53,6 +53,8 @@
     <hr style="margin: 0;">
   </body>
   <script>
+
+    // funcionalidad de layout Generator
     function allowDrop(ev) {
       ev.preventDefault();
     }
@@ -66,6 +68,7 @@
       var data = ev.dataTransfer.getData("text");
       ev.target.appendChild(document.getElementById(data));
     }
+    // fin de funcionalidad de layout Generator
   </script>
 
 </html>

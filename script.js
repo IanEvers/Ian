@@ -206,18 +206,46 @@ $('.entraDraggeable').on('dragover', function(event) {
   allowDrop(event);
 });
 
-function allowDrop(ev) {
+$(document).on("click", ".generarLayout" , function() {
+
+  var stringLayout = " \\\"  ";
+
+  $('.entraDraggeable').each(function( index ) {
+    var elementoAdentro = $(this).children('p').attr('id')
+    console.log(elementoAdentro)
+    if(elementoAdentro) {
+      var elementoId = elementoAdentro.split("-")[1];
+    } else {
+      var elementoId = ".";
+    }
+
+    if (index == 3 || index == 6) {
+      stringLayout += " \\\" \\\" ";
+    }
+    
+    stringLayout += elementoId +" ";
+    
+    
+  });
+  stringLayout += "\\\" ";
   
-}
-
-function drag(ev) {
   
-}
+  var contenedor = document.querySelector('.contenedor')
 
-function drop(ev) {
- 
-}
+  contenedor.style.gridTemplateAreas = '\''+stringLayout+'\'';
 
+  // $(contenedor).css('grid-template-areas',  " \" titulo canvas texto  \" \" . presentacion .  \" \" . contenedorLayout . \" ")
+  $(contenedor).css('grid-template-areas',  stringLayout)
+  console.log(stringLayout)
+
+
+  
+});
+
+
+
+
+//CAMBIO ENTRE VISTAS
 var ultimaVista = 'desafioTecnico';
 
 function cargarVista(vista) {
@@ -236,7 +264,7 @@ function cargarVista(vista) {
     // Lo correcto sería hacer el llamado ni bien carguen, pero no se cuando es que cargan exactamente jeje xd
     setTimeout(() => {
       threeJS();
-    }, 100); 
+    }, 1000); 
 
   } if(vista =='cuento') {
     $(".contenedorDeContenido").load("cuento.html");
@@ -245,7 +273,7 @@ function cargarVista(vista) {
     $(".contenedorDeContenido").load("musica.html");
 
   } else if(vista =='contacto') {
-    // $(".contenedorDeContenido").load("cuento.html");
+    $(".contenedorDeContenido").load("contacto.html");
 
   }
 

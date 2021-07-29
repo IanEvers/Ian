@@ -162,7 +162,7 @@ body
     text-align: center;
 }
 
-.simplificar {
+.boton {
     padding: 0.5rem;
     font-size: 1rem;
     color: blanchedalmond;
@@ -201,6 +201,12 @@ body
     border: 1px solid hotpink;
 }
 
+.contenedorDraggeables {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+}
+
 .cuento {
     max-width: 800px;
     background-color: rgb(24,24,24);
@@ -216,6 +222,12 @@ body
     /* text-align: justify; */
     padding-right: 1.8rem;
     padding-left: 1.8rem;
+}
+
+.musica {
+    max-width: 800px;
+    background-color: rgb(24,24,24);
+    margin: auto;
 }
 
 /*# sourceMappingURL=main.css.map*/

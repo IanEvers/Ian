@@ -7,7 +7,7 @@
 
 <div class="presentacion">
     <p class="pMain">
-    Hola! Soy un joven programador Full Stack.
+        Hola! Soy un joven programador Full Stack.
     </p>
 </div>
 <div class="contenido">
@@ -18,7 +18,7 @@
         </p>
         <div class="inputsEjercicio1"> 
             <input type="text" class="fraccion">
-            <input type="button" class="simplificar" value="SIMPLIFICAR">
+            <input type="button" class="boton simplificar" value="SIMPLIFICAR">
         </div>
     </div>
     <div class="parrafo">
@@ -40,6 +40,7 @@
 </div>
 <div class="contenedorLayout">
     <h1 class="tituloParrafo"> Elija su propio Layout!</h1>
+    <p class="pMain">aviso: no va a quedar lindo.</p>
     <div class="celdas">
     
         <div id="celda1" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
@@ -52,10 +53,22 @@
         <div id="celda8" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
         <div id="celda9" class="entraDraggeable" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
     </div>
+
+    <div class="contenedorDraggeables">
+        <p id="drag-titulo" class="pMain draggeable" draggable="true" ondragstart="drag(event)" width="336" height="69">Título</p>
+        <p id="drag-canvas" class="pMain draggeable" draggable="true" ondragstart="drag(event)" width="336" height="69">Ian 3D</p>
+        <p id="drag-presentacion" class="pMain draggeable" draggable="true" ondragstart="drag(event)" width="336" height="69">Presentación</p>
+        <p id="drag-texto" class="pMain draggeable" draggable="true" ondragstart="drag(event)" width="336" height="69">Texto</p>
+        <p id="drag-contenedorLayout" class="pMain draggeable" draggable="true" ondragstart="drag(event)" width="336" height="69">Layout Maker</p>
+    </div>
     
-    <h1 id="drag1" class="draggeable" draggable="true" ondragstart="drag(event)" width="336" height="69"> 
-        copado
-    </h1>
+    <br>
+
+    <input type="button" class="boton generarLayout" value="Generar Layout">
+
+    <br>
+    <br>
+
 </div>
     
 </div>
