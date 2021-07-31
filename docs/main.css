@@ -230,4 +230,9 @@ body
     margin: auto;
 }
 
+.bloqueMusica {
+    justify-content: center;
+    display: flex;
+}
+
 /*# sourceMappingURL=main.css.map*/
