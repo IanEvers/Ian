@@ -1,4 +1,4 @@
-cargarVista('desafioTecnico')
+cargarVista('presentacion')
 
 // THREE JS
 
@@ -133,17 +133,17 @@ $('.itemSidebar').on('click', function() {
 });
 
 //CAMBIO ENTRE VISTAS
-var ultimaVista = 'desafioTecnico';
+var ultimaVista = 'presentacion';
 
 function cargarVista(vista) {
   
   if(vista == ultimaVista) return;
 
-  if(vista != 'desafioTecnico') {
+  if(vista != 'presentacion') {
     pausa = true;
   }
 
-  if(vista =='desafioTecnico') {
+  if(vista =='presentacion') {
     
     $(".contenedorDeContenido").load("presentacion.html")
 
