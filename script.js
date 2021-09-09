@@ -128,122 +128,9 @@ $('.itemSidebar').on('click', function() {
   
   var seccion = $(this).attr('id');
     
-  transicion().then(cargarVista(seccion));
+  cargarVista(seccion)
   
 });
-
-function transicion() { 
-  return new Promise((resolve, reject) => {
-    var canvasTransicion = $('.transicion')
-    
-    $(canvasTransicion).attr('position', 'absolute')
-    // agrandarCabeza = true;
-    resolve(true);
-  })
-}
-  
-
-
-// EJERCICIO 1 
-
-$(document).on("click", ".simplificar" , function() {
-  var fraccion = $('.fraccion');
-  var valorFraccion = $(fraccion).val();
-  var numerosFraccion = valorFraccion.split('/');
-  var divisores1 = obtenerDivisores(numerosFraccion[0]);
-  var divisores2 = obtenerDivisores(numerosFraccion[1]);
-  
-  var mcm = obtenerMaximoComunMultiplo(divisores1, divisores2);
-
-  if(mcm) {
-
-    numerosFraccion[0] = numerosFraccion[0] / mcm;
-    numerosFraccion[1] = numerosFraccion[1] / mcm;
-    
-    $(fraccion).val(numerosFraccion[0] + '/' + numerosFraccion[1]); 
-  } else {
-    $(fraccion).val('Insimplificable.');     
-  }
-  
-});
-
-
-function obtenerMaximoComunMultiplo(divisores1, divisores2) {
-  var mcm;
-  for(var i = 0; i < divisores1.length; i++) {
-    for(var j = 0; j < divisores2.length; j++) {
-      if(divisores1[i] == divisores2[j]) {
-        mcm = divisores1[i];
-      }
-    }
-  }
-  return mcm;
-}
-
-function obtenerDivisores(numero) {
-  var listaDivisores = [];
-  for(var contador = 2; contador <= numero ;contador++) {
-    if(Number.isInteger(numero/contador)) {
-      listaDivisores.push(contador)
-    }
-  }
-  return listaDivisores;
-}
-
-
-
-//  DRAG AND DROP
-$('.draggeable').on('dragstart', function(event) {
-  
-  drag(event);
-});
-
-$('.entraDraggeable').on('drop', function(event) {
-  drop(event);
-});
-
-$('.entraDraggeable').on('dragover', function(event) {
-  allowDrop(event);
-});
-
-$(document).on("click", ".generarLayout" , function() {
-
-  var stringLayout = " \\\"  ";
-
-  $('.entraDraggeable').each(function( index ) {
-    var elementoAdentro = $(this).children('p').attr('id')
-    console.log(elementoAdentro)
-    if(elementoAdentro) {
-      var elementoId = elementoAdentro.split("-")[1];
-    } else {
-      var elementoId = ".";
-    }
-
-    if (index == 3 || index == 6) {
-      stringLayout += " \\\" \\\" ";
-    }
-    
-    stringLayout += elementoId +" ";
-    
-    
-  });
-  stringLayout += "\\\" ";
-  
-  
-  var contenedor = document.querySelector('.contenedor')
-
-  contenedor.style.gridTemplateAreas = '\''+stringLayout+'\'';
-
-  // $(contenedor).css('grid-template-areas',  " \" titulo canvas texto  \" \" . presentacion .  \" \" . contenedorLayout . \" ")
-  $(contenedor).css('grid-template-areas',  stringLayout)
-  console.log(stringLayout)
-
-
-  
-});
-
-
-
 
 //CAMBIO ENTRE VISTAS
 var ultimaVista = 'desafioTecnico';
@@ -272,10 +159,7 @@ function cargarVista(vista) {
   } else if(vista =='musica') {
     $(".contenedorDeContenido").load("musica.html");
 
-  } else if(vista =='contacto') {
-    $(".contenedorDeContenido").load("contacto.html");
-
-  }
+  } 
 
   ultimaVista = vista;
 }

@@ -40,14 +40,7 @@ module.exports = {
             template: path.resolve(__dirname, '../vistas/musica.html'),
             minify: true,
             chunks: []
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'contacto.html',
-            template: path.resolve(__dirname, '../vistas/contacto.html'),
-            minify: true,
-            chunks: []
-        }),
-        
+        }),    
         new MiniCSSExtractPlugin()
     ],
     module:

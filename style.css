@@ -1,7 +1,6 @@
 *
 {
     margin: 1fr;
-    /* border: red 1px solid; */
 }
 
 html,
@@ -9,43 +8,42 @@ body
 {
     margin: 0;
     font-family: 'Poppins';
-    background: rgb(24,24,24);
+    background: rgb(214, 199, 199);
 }
 
 .header {
     text-align: center;
-    color: white; 
-    border-bottom: 1px white solid;
-    background: rgb(24,24,24);
+    color: rgb(0, 0, 0); 
+    border-bottom: 1px rgb(0, 0, 0) solid;
     grid-area: header;
 }
 
 .contenidoYSidebar {
     display: grid;
-    grid-template-columns: 1fr 80%;
+    grid-template-columns: 1fr ;
     grid-gap: 10px 0px 0px 00px;
     grid-auto-rows: minmax(50px, auto);
     grid-template-areas:
-    "sidebar header"
-    "sidebar contenedor";
+    "header header"
+    ". contenedor"
+    "sidebar sidebar";
 }
 
 .sidebar {
     grid-area: sidebar;
     display: flex;
-    flex-direction: column;
     text-align: center;
-    border-right: blanchedalmond solid 1px;
+    justify-content: center;
 }
 
 .fa-chevron-left {
-    color: aliceblue;  
+    color: rgb(0, 0, 0);  
 }
 
 .tituloSidebar {
     font-size: 2rem;
     text-transform: uppercase;
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
 }
 
@@ -54,8 +52,20 @@ body
     text-decoration: auto;
 }
 
+.cuento > p {
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-family: 'IBM Plex Sans', serif;
+    text-align: justify;
+    padding-right: 1.8rem;
+    padding-left: 1.8rem;
+}
+
+
 .contenedorDeContenido {
-    background-color: rgb(24,24,24);
+    border-bottom: rgb(0, 0, 0) 1px solid;
+    margin-bottom: 1rem;
 }
 
 .contenedor {
@@ -72,11 +82,8 @@ body
 }
 
 .center {
-    /* max-width: 1300px; */
     margin: auto;
     place-items: center;
-    background: rgb(24,24,24);
-    border-left:  grey 1px solid;
 }
 
 @media only screen and (max-width: 900px)  {
@@ -108,12 +115,15 @@ body
     .center {
         border-left: none;
     }
+
+    .cuento > p {
+        font-size: 2rem;
+    }
 }
 
 .webgl
 {
     outline: none;
-    mix-blend-mode: exclusion;
     min-width: 150px;
     align-self: center;
 }
@@ -121,7 +131,7 @@ body
 .titulo {
     font-size: calc(50px + 10 * ((100vw - 320px) / 1480));
     text-transform: uppercase;
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
     grid-area: titulo;
 }
@@ -172,16 +182,12 @@ body
 
 .itemSidebar, .pMain {
     text-align: center;
-    color: white; 
-    font-size: calc(18px + 10 * ((100vw - 320px) / 1480));
+    color: rgb(0, 0, 0); 
+    font-size: 2rem;
     font-weight: 500;
     font-family: 'IBM Plex Sans', sans-serif;
     padding-right: 1.8rem;
     padding-left: 1.8rem;
-}
-
-.parrafo > p {
-    border: 1px solid hotpink;
 }
 
 .contenedorLayout {
@@ -190,43 +196,13 @@ body
     grid-area: contenedorLayout;
 }
 
-.celdas {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-    grid-auto-rows: minmax(50px, auto);
-}
-
-.entraDraggeable {
-    border: 1px solid hotpink;
-}
-
-.contenedorDraggeables {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-
-}
-
 .cuento {
     max-width: 800px;
-    background-color: rgb(24,24,24);
     margin: auto;
-}
-
-.cuento > p {
-    text-align: left;
-    color: white; 
-    font-size: 1.2rem;
-    font-weight: 500;
-    font-family: 'IBM Plex Sans', serif;
-    /* text-align: justify; */
-    padding-right: 1.8rem;
-    padding-left: 1.8rem;
 }
 
 .musica {
     max-width: 800px;
-    background-color: rgb(24,24,24);
     margin: auto;
 }
 
