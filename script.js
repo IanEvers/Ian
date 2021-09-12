@@ -12,7 +12,6 @@ function threeJS() {
 
 
 // loading
-  
   const loader = new GLTFLoader();
   var yo = null;
   
@@ -21,12 +20,8 @@ function threeJS() {
     scene.add( gltf.scene );
     yo = gltf.scene
     gltf.scene.rotation.y = 5
-    // gui.add(gltf.scene.rotation, 'y')
-    
   }, undefined, function ( error ) {
-    
     console.error( error );
-    
   } );
   
   // Canvas
@@ -62,7 +57,6 @@ function threeJS() {
     sizes.height =  canvas.height
     
     // Update camera
-    
     camera.aspect =  sizes.width / sizes.height
     
     camera.updateProjectionMatrix()
@@ -125,11 +119,8 @@ function threeJS() {
 
 //ANIMACIÓN ENTRE PANTALLAS
 $('.itemSidebar').on('click', function() {
-  
   var seccion = $(this).attr('id');
-    
   cargarVista(seccion)
-  
 });
 
 //CAMBIO ENTRE VISTAS
@@ -155,11 +146,8 @@ function cargarVista(vista) {
 
   } if(vista =='cuento') {
     $(".contenedorDeContenido").load("cuento.html");
-    
   } else if(vista =='musica') {
     $(".contenedorDeContenido").load("musica.html");
-
-  } 
-
+  }
   ultimaVista = vista;
 }
