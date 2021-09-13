@@ -21,7 +21,6 @@ body
 .contenidoYSidebar {
     display: grid;
     grid-template-columns: 1fr ;
-    grid-gap: 10px 0px 0px 00px;
     grid-auto-rows: minmax(50px, auto);
     grid-template-areas:
     "header header"
@@ -47,37 +46,28 @@ body
     text-align: center;
 }
 
-.itemSidebar {
-    padding: 1rem;
-    text-decoration: auto;
-}
-
 .cuento > p {
-    text-align: left;
     font-size: 1.5rem;
-    font-weight: 500;
-    font-family: 'IBM Plex Sans', serif;
+    font-weight: 900;
     text-align: justify;
     padding-right: 1.8rem;
     padding-left: 1.8rem;
+    font-family: libre franklin,Arial,Helvetica,sans-serif;
+    text-indent: 20px;
 }
 
 
 .contenedorDeContenido {
     border-bottom: rgb(0, 0, 0) 1px solid;
-    margin-bottom: 1rem;
 }
 
 .contenedor {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
     grid-auto-rows: minmax(50px, auto);
     grid-template-areas:
         "titulo titulo canvas"
-        "presentacion presentacion presentacion"
-        "texto texto texto"
-        "contenedorLayout contenedorLayout contenedorLayout";
+        "presentacion presentacion presentacion";
     grid-area: contenedor;   
 }
 
@@ -86,39 +76,11 @@ body
     place-items: center;
 }
 
-@media only screen and (max-width: 900px)  {
-    .contenidoYSidebar {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-gap: 10px;
-        grid-auto-rows: minmax(50px, auto);
-        grid-template-areas:
-        "header"
-        "contenedor"
-        "sidebar";
-    }
-    .contenedor {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 10px;
-        grid-auto-rows: minmax(50px, auto);
-        grid-template-areas:
-            "titulo titulo titulo"
-            "canvas canvas canvas"
-            "presentacion presentacion presentacion"
-            "texto texto texto"
-            "contenedorLayout contenedorLayout contenedorLayout";
-    }
-    .layoutShooter {
-        width: 300px;
-    }
-    .center {
-        border-left: none;
-    }
 
-    .cuento > p {
-        font-size: 2rem;
-    }
+
+.pMain {
+    text-align: center;
+    font-size: 1.2rem;
 }
 
 .webgl
@@ -180,20 +142,14 @@ body
     background-color: rgb(24,24,24);
 }
 
-.itemSidebar, .pMain {
+.itemSidebar {
     text-align: center;
-    color: rgb(0, 0, 0); 
+    color: rgb(0, 0, 0);
     font-size: 2rem;
     font-weight: 500;
     font-family: 'IBM Plex Sans', sans-serif;
-    padding-right: 1.8rem;
-    padding-left: 1.8rem;
-}
-
-.contenedorLayout {
-    text-align: center;
-    margin: auto;
-    grid-area: contenedorLayout;
+    text-decoration: auto;
+    padding: 1.8rem;
 }
 
 .cuento {
@@ -209,6 +165,105 @@ body
 .bloqueMusica {
     justify-content: center;
     display: flex;
+}
+
+.notas {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    flex: 6;
+}
+
+.notaMusical {
+    background-color: #fafafa; 
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: black 1px solid;
+    width: 6rem;
+    height: 15rem;
+} 
+
+.notaReferencia > p {
+    text-align: center;
+    background-color: rgb(156, 206, 201);
+    color: rgb(0, 0, 0);
+    border: rgb(65, 64, 64) 1px solid;
+}
+
+.negra {
+    background-color: #000000; 
+    color: rgb(255, 255, 255);
+    border: rgb(65, 64, 64) 1px solid;
+}
+
+@media only screen and (max-width: 900px)  {
+    .contenidoYSidebar {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: minmax(50px, auto);
+        grid-template-areas:
+        "header"
+        "contenedor"
+        "sidebar";
+    }
+    .contenedor {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(50px, auto);
+        grid-template-areas:
+            "titulo titulo titulo"
+            "canvas canvas canvas"
+            "presentacion presentacion presentacion";
+    }
+    .layoutShooter {
+        width: 300px;
+    }
+    .center {
+        border-left: none;
+    }
+
+    .cuento > p {
+        margin-top: 0;
+        margin-bottom: 20px;
+        color: #000000;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .sidebar {
+        flex-direction: column;
+    }
+
+    .itemSidebar {
+        background-color: rgb(158, 166, 245);
+        border: 1px rgb(200, 218, 245) solid;
+    }
+
+    .notaMusical {
+        color: rgb(0, 0, 0);
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1rem;
+        border: black 1px solid;
+        width: 5rem;
+    }
+     
+    .negra {
+        background-color: #000000; 
+        color: rgb(255, 255, 255);
+        border: rgb(65, 64, 64) 1px solid;
+    }
+
+    .notaReferencia > p {
+        display: none;
+    }
 }
 
 /*# sourceMappingURL=main.css.map*/

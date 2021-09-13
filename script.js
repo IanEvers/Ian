@@ -16,7 +16,6 @@ function threeJS() {
   var yo = null;
   
   loader.load( 'https://ianevers.github.io/Ian/ianevers.glb', function ( gltf ) {
-    
     scene.add( gltf.scene );
     yo = gltf.scene
     gltf.scene.rotation.y = 5
@@ -31,14 +30,7 @@ function threeJS() {
   const scene = new THREE.Scene()
   
   // Lights
-  
-  const pointLight = new THREE.PointLight(0xffffff, 1)
-  pointLight.position.x = 2
-  pointLight.position.y = 3
-  pointLight.position.z = 4
-  scene.add(pointLight)
-  
-  const light = new THREE.AmbientLight( 0x404040,5); // soft white light
+  const light = new THREE.AmbientLight(0x404040,5); // soft white light
   
   scene.add( light );
   
@@ -117,7 +109,6 @@ function threeJS() {
 
 }
 
-//ANIMACIÓN ENTRE PANTALLAS
 $('.itemSidebar').on('click', function() {
   var seccion = $(this).attr('id');
   cargarVista(seccion)

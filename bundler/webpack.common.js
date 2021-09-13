@@ -4,7 +4,7 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 
 module.exports = {
-    entry: path.resolve(__dirname, '../script.js'),
+    entry: path.resolve(__dirname, '../script.js'), 
     output:
     {
         filename: 'bundle.[contenthash].js',
@@ -97,6 +97,13 @@ module.exports = {
                         }
                     }
                 ]
+            },
+
+            //audio
+            {
+                test: /\.mp3$/,
+                include: path.resolve(__dirname, 'notas/'),
+                loader: 'file-loader'
             },
 
             // Fonts
